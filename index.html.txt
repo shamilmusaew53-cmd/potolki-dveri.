@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Натяжные потолки и установка дверей под ключ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF5722;
+            --primary-hover: #E64A19;
+            --secondary: #FFC107;
+            --dark: #1E212D;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Шапка */
+        header {
+            background: var(--dark);
+            color: #fff;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .header-contacts {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .phone {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .btn-header {
+            background: var(--primary);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-header:hover {
+            background: var(--primary-hover);
+        }
+
+        /* Первый экран */
+        .hero {
+            background: linear-gradient(rgba(30, 33, 45, 0.85), rgba(30, 33, 45, 0.85)), 
+                        url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1350&q=80') center/cover;
+            color: #fff;
+            padding: 100px 5% 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: var(--secondary);
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .features-badge {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .badge-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Секция Калькулятора */
+        .calculator-section {
+            padding: 70px 5%;
+            max-width: 1000px;
+            margin: -50px auto 50px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 40px;
+        }
+
+        .calc-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bo
+
+
+ttom: 30px;
+        }
+
+        .tab-btn {
+            padding: 12px 30px;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .calc-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .form-group select, .form-group input[type="range"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .range-value {
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 5px;
+            display: block;
+        }
+
+        .result-box {
+            background: var(--dark);
+            color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .result-box h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #aaa;
+        }
+
+        .total-price {
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .btn-order {
+            display: block;
+            width: 100%;
+            background: var(--primary);
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-order:hover {
+            background: var(--primary-hover);
+        }
+
+        /* Услуги */
+        .services {
+            padding: 60px 5%;
+            background: #fff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-content {
+            padding: 20px;
+        }
+
+        .service-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        /* Контакты */
+        .contact-section {
+            padding: 60px 5%;
+            background: var(--dark);
+            color: #fff;
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 30px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input {
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+        }
+
+        /* Адаптивность */
+        max-width: 768px {
+            .hero h1 { font-size: 28px; }
+            .calc-body { grid-template-columns: 1fr; }
+            .header-contacts { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <div class="logo">МАСТЕР<span>ПРО</span></div>
+        <div class="header-contacts">
+            <a href="tel:+79991112233"
+
+
+class="phone">+7 (999) 111-22-33</a>
+            <a href="#calc" class="btn-header">Расчет стоимости</a>
+        </div>
+    </header>
+
+    <!-- Первый экран -->
+    <section class="hero">
+        <h1>Натяжные потолки и двери <span>с гарантией 10 лет</span></h1>
+        <p>Установка за 1 день без пыли и мусора. Выезд замерщика — БЕСПЛАТНО!</p>
+        
+        <div class="features-badge">
+            <div class="badge-item">✓ Фиксированная цена в договоре</div>
+            <div class="badge-item">✓ Монтаж за 24 часа</div>
+            <div class="badge-item">✓ Убираем за собой мусор</div>
+        </div>
+    </section>
+
+    <!-- Калькулятор -->
+    <section class="calculator-section" id="calc">
+        <h2 class="section-title">Калькулятор стоимости</h2>
+        <p class="section-subtitle">Рассчитайте примерную стоимость ваших работ за 30 секунд</p>
+
+        <div class="calc-tabs">
+            <button class="tab-btn active" onclick="switchTab('ceilings')">Потолки</button>
+            <button class="tab-btn" onclick="switchTab('doors')">Межкомнатные двери</button>
+        </div>
+
+        <!-- Калькулятор ПОТОЛКОВ -->
+        <div id="ceilings-calc" class="calc-body">
+            <div class="calc-inputs">
+                <div class="form-group">
+                    <label>Материал / Тип потолка:</label>
+                    <select id="ceiling-type" onchange="calculateCeiling()">
+                        <option value="550">Матовый (стандарт) — от 550 ₽/м²</option>
+                        <option value="600">Глянцевый (визуально расширяет) — от 600 ₽/м²</option>
+                        <option value="650">Сатиновый (мягкое отражение) — от 650 ₽/м²</option>
+                        <option value="1200">Парящий с подсветкой — от 1200 ₽/м²</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Площадь помещения: <span id="area-val" class="range-value">20 м²</span></label>
+                    <input type="range" id="ceiling-area" min="5" max="150" value="20" oninput="calculateCeiling()">
+                </div>
+                <div class="form-group">
+                    <label>Количество светильников / люстр:</label>
+                    <input type="range" id="ceiling-lights" min="0" max="20" value="4" oninput="calculateCeiling()">
+                    <span id="lights-val" class="range-value">4 шт.</span>
+                </div>
+            </div>
+
+            <div class="result-box">
+                <h4>Предварительный расчет:</h4>
+                <div class="total-price" id="ceiling-total">13 000 ₽</div>
+                <button class="btn-order" onclick="openOrderModal('Потолки')">Зафиксировать цену</button>
+            </div>
+        </div>
+
+        <!-- Калькулятор ДВЕРЕЙ -->
+        <div id="doors-calc" class="calc-body" style="display: none;">
+            <div class="calc-inputs">
+                <div class="form-group">
+                    <label>Тип установки / Двери:</label>
+                    <select id="door-type" onchange="calculateDoors()">
+                        <option value="2500">Стандартная установка — 2 500 ₽/шт</option>
+                        <option value="3500">Скрытая дверь (Invisible) — 3 500 ₽/шт</option>
+                        <option value="3000">Двустворчатая дверь — 3 000 ₽/шт</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Количество дверей: <span id="doors-count-val" class="range-value">3 шт.</span></label>
+                    <input type="range" id="doors-count" min="1" max="15" value="3" oninput="calculateDoors()">
+                </div>
+                <div class="form-group">
+                    <label>Дополнительно:</label>
+                    <select id="door-extra" onchange="calculateDoors()">
+                        <option value="0">Без доборов и доп. работ</option>
+                        <option value="800">Установка доборов (+800 ₽/дверь)<
+
+
+
+
+
+/option>
+                        <option value="1200">Демонтаж старых дверей (+1 200 ₽/дверь)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="result-box">
+                <h4>Предварительный расчет:</h4>
+                <div class="total-price" id="doors-total">7 500 ₽</div>
+                <button class="btn-order" onclick="openOrderModal('Двери')">Зафиксировать цену</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Наши услуги -->
+    <section class="services">
+        <h2 class="section-title">Что мы предлагаем</h2>
+        <p class="section-subtitle">Работаем только с качественными материалами</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="service-content">
+                    <h3>Натяжные потолки</h3>
+                    <p>Любые сложности: от классических белых полотен до современных световых линий и парящих конструкций.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="service-content">
+                    <h3>Установка дверей</h3>
+                    <p>Профессиональный монтаж межкомнатных дверей, врезка замков, установка скрытых петель и доборов.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="service-content">
+                    <h3>Комплексный объект</h3>
+                    <p>Скидка 15% при одновременном заказе монтажа потолков и дверей во всей квартире!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Форма контактов -->
+    <section class="contact-section">
+        <h2>Вызовите замерщика БЕСПЛАТНО</h2>
+        <p>Оставьте номер, и наш мастер перезвонит вам в течение 10 минут</p>
+        
+        <form class="contact-form" onsubmit="submitForm(event)">
+            <input type="text" placeholder="Ваше имя" required>
+            <input type="tel" placeholder="Ваш телефон" required>
+            <button type="submit" class="btn-order">Вызвать замерщика</button>
+        </form>
+    </section>
+
+    <!-- Скрипт калькулятора -->
+    <script>
+        function switchTab(type) {
+            const tabs = document.querySelectorAll('.tab-btn');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            if (type === 'ceilings') {
+                tabs[0].classList.add('active');
+                document.getElementById('ceilings-calc').style.display = 'grid';
+                document.getElementById('doors-calc').style.display = 'none';
+            } else {
+                tabs[1].classList.add('active');
+                document.getElementById('ceilings-calc').style.display = 'none';
+                document.getElementById('doors-calc').style.display = 'grid';
+            }
+        }
+
+        function calculateCeiling() {
+            const pricePerMeter = parseInt(document.getElementById('ceiling-type').value);
+            const area = parseInt(document.getElementById('ceiling-area').value);
+            const lights = parseInt(document.getElementById('ceiling-lights').value);
+
+            document.getElementById('area-val').innerText = area + ' м²';
+            document.getElementById('lights-val').innerText = lights + ' шт.';
+
+            const total = (pricePerMeter * area) + (lights * 500); // 500 руб за светильник
+            document.getElementById('ceiling-total').innerText = total.toL
+
+
+ocaleString() + ' ₽';
+        }
+
+        function calculateDoors() {
+            const pricePerDoor = parseInt(document.getElementById('door-type').value);
+            const count = parseInt(document.getElementById('doors-count').value);
+            const extra = parseInt(document.getElementById('door-extra').value);
+
+            document.getElementById('doors-count-val').innerText = count + ' шт.';
+
+            const total = (pricePerDoor + extra) * count;
+            document.getElementById('doors-total').innerText = total.toLocaleString() + ' ₽';
+        }
+
+        function openOrderModal(service) {
+            alert('Спасибо за выбор! Для фиксации стоимости услуги "' + service + '" укажите имя и телефон в форме внизу страницы.');
+            document.querySelector('.contact-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            alert('Спасибо за заявку! Наш замерщик свяжется с вами в блищайшее время.');
+        }
+
+        // Инициализация стартовых расчетов
+        calculateCeiling();
+        calculateDoors();
+    </script>
+</body>
+</html>
